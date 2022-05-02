@@ -1,20 +1,9 @@
-// Factory Function
-function createCircle(radius) {
-    return {
-        radius,
-        draw: function(){
-            console.log('draw')
-        }
-    }
-}
-const circle = createCircle(1);
+let x = {};
 
-// Constructor Function
-function Circle(radius) {
-    this.radius - radius;
-    this.draw - function() {
-        console.log('draw');
-    }
-}
+// let x = new Object();
 
-const another = new Circle(1);
+new String(); // '', "", ``
+new Boolean(); // true, false
+new Number(); /// 1, 2, 3, ...
+
+/// Every object has a constructor property which references the function that was used to create that object.
