@@ -1,13 +1,13 @@
+// Value Types
+// Number, String, Boolean, Symbol (new in ES6), undefined, null
+// Reference Types
+// Object, Function, Array
 
-function Circle(radius) {
-    this.radius = radius;
-    this.draw = function() {
-        console.log('draw');
-    }
-}
+let x = { value: 10 };
+let y = x;
 
-Circle.call({}, 1) // Identical to expression line 11 call
-// passing the below without new sets the target of this to the window in JS
-Circle.apply({}, [1, 2, 3]); // arguements are passed as an array
-
-const another = new Circle(1);
+x.value = 20;
+//When we use a reference type (like object), the value is tied to the object, not the variable
+// it's stored somewhere else in memory, so when we copy it the address gets copied rather than the value
+// Primitives are copied by their value
+// Objects are copied by their reference
