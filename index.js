@@ -1,7 +1,6 @@
-let number = 10;
-function increase(number){
-    number++; // completely independent of the above declared variable
-              // AFter the function is done, it goes out of scope
+let obj = { value: 10 };
+function increase(obj){
+    obj.value++; // When done as an object, it points to the reference and updates outside the function as intended
 }
-increase(number);
-console.log(number);
+increase(obj);
+console.log(obj);
