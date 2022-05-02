@@ -1,9 +1,18 @@
-let x = {};
 
-// let x = new Object();
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+        console.log('draw');
+    }
+}
 
-new String(); // '', "", ``
-new Boolean(); // true, false
-new Number(); /// 1, 2, 3, ...
+const Circle1 = new Function('radius', `
+    this.radius = radius;
+    this.draw = function() {
+        console.log('draw');
+    }
+`);
 
-/// Every object has a constructor property which references the function that was used to create that object.
+const circle = new Circle1(1);
+
+const another = new Circle(1);
