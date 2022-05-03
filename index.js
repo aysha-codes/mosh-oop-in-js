@@ -1,20 +1,23 @@
+// Abstraction
+// Hide the details
+// Show the essentials
+
 function Circle(radius) {
     this.radius = radius;
+
+    this.defaultLocation = { x: 0, y: 0 };
+
+    this.computeOptimumLocation = function() {
+        // ,,,
+    }
     this.draw = function() {
+        this.computeOptimumLocation();
+
         console.log('draw');
     }
 }
 
 const circle = new Circle(10);
+circle.computeOptimumLocation(); 
 
-// We can use a for in loop to emumerate over properties
-for (let key in circle) {
-    if (typeof circle[key] !== 'function') // prevents return of functions, only values
-        console.log(key, circle[key]) // logs properties line by line
-}
-
-const keys = Object.keys(Circle); // dot notation to log each key in an array but can't filter
-console.log(keys);
-
-if ('radius' in circle) // checks for existence
-    console.log('Circle has a radius.');
+// By having this accessible, it results in having to modify many things just to make a simple change
