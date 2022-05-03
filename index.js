@@ -1,6 +1,14 @@
-let obj = { value: 10 };
-function increase(obj){
-    obj.value++; // When done as an object, it points to the reference and updates outside the function as intended
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+        console.log('draw');
+    }
 }
-increase(obj);
-console.log(obj);
+
+const circle = new Circle(10);
+
+// Can add something extra as needed to objects
+circle.location = { x: 1 };
+const propertyName = 'location';
+circle[propertyName] = { x: 1 };
+// IF you have special characters or spaces, use the above bracket notation
