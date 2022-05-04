@@ -5,19 +5,21 @@
 function Circle(radius) {
     this.radius = radius;
 
-    this.defaultLocation = { x: 0, y: 0 };
+    let defaultLocation = { x: 0, y: 0 }; // only a local variable in this function
 
-    this.computeOptimumLocation = function() {
+    let computeOptimumLocation = function() { // Now a private method
         // ,,,
     }
     this.draw = function() {
-        this.computeOptimumLocation();
+        computeOptimumLocation(0.1); // Calling it directly; concept of closure
+        // Scope is temporary; closure stays
+        // Closure determines what variables are accessible to an inner function
+        // Can access all the variables in its parent function due to closure
+        // To use members of the NEW object, you need to use this  
 
         console.log('draw');
     }
 }
 
 const circle = new Circle(10);
-circle.computeOptimumLocation(); 
-
-// By having this accessible, it results in having to modify many things just to make a simple change
+circle.draw();
