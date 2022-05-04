@@ -1,25 +1,31 @@
-// Abstraction
-// Hide the details
-// Show the essentials
-
 function Circle(radius) {
     this.radius = radius;
 
-    let defaultLocation = { x: 0, y: 0 }; // only a local variable in this function
+    let defaultLocation = { x: 0, y: 0 };
 
-    let computeOptimumLocation = function() { // Now a private method
-        // ,,,
-    }
+    this.getDefaultLocation = functio() {
+        return defaultLocation;
+    };
+
     this.draw = function() {
-        computeOptimumLocation(0.1); // Calling it directly; concept of closure
-        // Scope is temporary; closure stays
-        // Closure determines what variables are accessible to an inner function
-        // Can access all the variables in its parent function due to closure
-        // To use members of the NEW object, you need to use this  
+        computeOptimumLocation(0.1);
 
         console.log('draw');
     }
+
+    Object.defineProperty(this, 'defaultLocation', { // USed to define getters and setters
+        get: function() { // read only property
+            return defaultLocation;
+        },
+        set: function(value) { // allow setting of the property from the outside
+            if (!value.x || !value.y) // throw an error if invalid
+                throw new Error('Invalid locaiton');
+
+            defaultLocation = value;
+        }
+    });
 }
 
 const circle = new Circle(10);
+circle.defaultLocation = 1; // Throws the error
 circle.draw();
