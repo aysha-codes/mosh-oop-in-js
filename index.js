@@ -31,6 +31,6 @@ function Stopwatch() {
     };
 
     Object.defineProperty(this, 'duration', {
-        get: function() { return: duration; }
+        get: function() { return duration; }
     });
 }
